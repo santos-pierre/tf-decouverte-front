@@ -1,0 +1,55 @@
+<nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-light">
+  <div class="container">
+    <a class="navbar-brand mr-lg-5" routerLink="">
+      <img src="./assets/img/brand/technologo.png">
+    </a>
+    <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse collapse" id="navbar_global" [ngbCollapse]="isCollapsed">
+      <div class="navbar-collapse-header">
+        <div class="row">
+          <div class="col-6 collapse-brand">
+            <a routerLink="">
+              <img src="./assets/img/brand/technologo.png">
+            </a>
+          </div>
+          <div class="col-6 collapse-close">
+            <button type="button" class="navbar-toggler" (click)="isCollapsed = !isCollapsed">
+              <span></span>
+              <span></span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
+        <li class="nav-item" >
+          <a class="nav-link" role="button" routerLink="/">
+            <span class="nav-link-inner--text">Accueil</span>
+          </a>
+        </li>
+        <li class="nav-item" *ngIf="!isConnect" >
+          <a class="nav-link" role="button" routerLink="/login">
+            <span class="nav-link-inner--text">Connexion</span>
+          </a>
+        </li>
+        <li class="nav-item" *ngIf="isConnect" (click)="logoutFct()">
+          <a class="nav-link" role="button" routerLink="/">
+            <span class="nav-link-inner--text" >Déconnexion</span>
+          </a>
+        </li>
+        <li class="nav-item" *ngIf="isConnect" >
+          <a class="nav-link" role="button" routerLink="/profil">
+            <span class="nav-link-inner--text">Profile</span>
+          </a>
+        </li>
+        <li class="nav-item" *ngIf="isConnect" >
+          <a class="nav-link" role="button" routerLink="listUsers">
+            <span class="nav-link-inner--text">Liste utilisateurs</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  
